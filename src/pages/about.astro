@@ -1,5 +1,17 @@
 ---
 const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Rédactrice technique",
+  hobbies: ["photographie", "observation des oiseaux", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Rédaction de documentation"];
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -20,6 +32,24 @@ const pageTitle = "About Me";
         <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
       
         <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+
+		<p>Voici quelques faits me concernant :</p>
+		<ul>
+			<li>Je m'appelle {identity.firstName}.</li>
+			<li>Je vis au {identity.country} et je travaille en tant que {identity.occupation}.</li>
+			{identity.hobbies.length >= 2 &&
+				<li>Deux de mes loisirs sont : {identity.hobbies[0]} et {identity.hobbies[1]}</li>
+			}
+		</ul>
+		<p>Voici mes compétences :</p>
+		<ul>
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+		{happy && <p>Je suis heureux d'apprendre Astro !</p>}
+
+		{finished && <p>J'ai terminé ce tutoriel !</p>}
+
+		{goal === 3 ? <p>Mon objectif est de terminer en 3 jours.</p> : <p>Mon objectif n'est pas de 3 jours.</p>}
     </body>
 
 </html>
